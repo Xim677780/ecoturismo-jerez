@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecoturismo en Jerez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fefbf6;
+      color: #333;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background-color: #c3e8bd;
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      animation: slideDown 1s ease-in-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    nav {
+      background-color: #ffe4e1;
+      padding: 1rem;
+      animation: fadeIn 2s ease-in;
+    }
+    nav select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      background-color: #fff;
+    }
+    .section {
+      display: none;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-in;
+    }
+    .active {
+      display: block;
+    }
+    .place {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: #f0fff0;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .place:hover {
+      transform: scale(1.02);
+    }
+    .place img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    .extra-info {
+      margin-top: 1rem;
+      background-color: #fff0f5;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+    }
+    .info-btn {
+      background-color: #d8e2dc;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s;
+    }
+    .info-btn:hover {
+      background-color: #cbd5c0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #c3e8bd;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9be3f79e36.mp3?filename=spring-nature-ambient-110397.mp3" type="audio/mp3">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <header>
+    <h1>Ecoturismo en Jerez</h1>
+    <p>Descubre la belleza natural, cultura y tranquilidad que Jerez tiene para ti</p>
+  </header>
+
+  <nav>
+    <select onchange="mostrar(this.value)">
+      <option value="inicio">Inicio</option>
+      <option value="lugares">Lugares mágicos</option>
+      <option value="aventuras">Actividades y Aventuras</option>
+      <option value="contacto">Contacto</option>
+    </select>
+  </nav>
+
+  <section id="inicio" class="section active">
+    <h2>Bienvenid@</h2>
+    <p>Jerez, Zacatecas es un Pueblo Mágico lleno de tradición, historia y paisajes espectaculares. Aquí puedes disfrutar del ecoturismo con experiencias auténticas y relajantes.🌿</p>
+    <ul>
+      <li>🌄 Caminatas por senderos naturales</li>
+      <li>🏕️ Zonas de camping y picnic</li>
+      <li>📸 Spots perfectos para fotografía</li>
+      <li>🦋 Observación de aves y mariposas</li>
+    </ul>
+    <h3>Galería de paisajes</h3>
+    <div class="gallery">
+      <img src="https://www.zacatecastravel.com/wp-content/uploads/2020/01/adjuntas-3.jpg" alt="Paisaje 1">
+      <img src="https://www.zacatecastravel.com/wp-content/uploads/2020/01/adjuntas-2.jpg" alt="Paisaje 2">
+      <img src="https://www.zacatecastravel.com/wp-content/uploads/2020/01/adjuntas-4.jpg" alt="Paisaje 3">
+    </div>
+  </section>
+
+  <section id="lugares" class="section">
+    <h2>Lugares mágicos para visitar</h2>
+    <div class="place">
+      <h3>La Cañada de las Adjuntas</h3>
+      <p><strong>Dirección:</strong> Camino rural a Cañada de las Adjuntas, Jerez, Zacatecas.</p>
+      <img src="https://www.zacatecastravel.com/wp-content/uploads/2020/01/adjuntas-1.jpg" alt="Cañada de las Adjuntas">
+      <button class="info-btn" onclick="toggleInfo('info1')">Info Extra</button>
+      <div id="info1" class="extra-info">
+        <p>Ideal para senderismo, avistamiento de aves, y momentos de paz en la naturaleza. Perfecto para escapar del ruido de la ciudad.</p>
+      </div>
+    </div>
+    <div class="place">
+      <h3>Parque El Molino</h3>
+      <p><strong>Dirección:</strong> Calle del Molino s/n, Centro, Jerez, Zacatecas.</p>
+      <img src="https://jerez-zacatecas.mx/wp-content/uploads/2022/02/parque-el-molino-jerez-zac.jpg" alt="Parque El Molino">
+      <button class="info-btn" onclick="toggleInfo('info2')">Info Extra</button>
+      <div id="info2" class="extra-info">
+        <p>Parque tradicional con áreas verdes, juegos, y paseos junto a un arroyo. Muy visitado por familias y turistas.</p>
+      </div>
+    </div>
+    <div class="place">
+      <h3>Sierra de Cardos</h3>
+      <p><strong>Dirección:</strong> A unos 40 minutos de Jerez, rumbo a Susticacán.</p>
+      <img src="https://www.zacatecastravel.com/wp-content/uploads/2020/02/sierra-cardos.jpg" alt="Sierra de Cardos">
+      <button class="info-btn" onclick="toggleInfo('info3')">Info Extra</button>
+      <div id="info3" class="extra-info">
+        <p>Montañas espectaculares con rutas para senderismo, ciclismo y cabañas. ¡Una experiencia que no puedes perder!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="aventuras" class="section">
+    <h2>Actividades y Aventuras</h2>
+    <ul>
+      <li>✨ Tour guiado por la Cañada y Sierra de Cardos</li>
+      <li>🚴‍♀️ Rutas en bicicleta por senderos naturales</li>
+      <li>🔥 Fogatas y narración de leyendas jerezanas</li>
+      <li>🎨 Taller de arte inspirado en la naturaleza</li>
+      <li>🌌 Observación de estrellas al aire libre</li>
+    </ul>
+    <p>¡Atrévete a vivir una experiencia diferente, conectando con la tierra y contigo mism@! 🌱</p>
+  </section>
+
+  <section id="contacto" class="section">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes dudas, quieres reservar una aventura o simplemente saludar? Estamos para ti:</p>
+    <ul>
+      <li>Email: <a href="mailto:ecoturismojerez@gmail.com">ecoturismojerez@gmail.com</a></li>
+      <li>Instagram: <a href="https://instagram.com/ecoturismojerez" target="_blank">@ecoturismojerez</a></li>
+      <li>Facebook: <a href="https://facebook.com/ecoturismojerez" target="_blank">facebook.com/ecoturismojerez</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ecoturismo en Jerez. Página creada con 💚 por Xim.</p>
+  </footer>
+
+  <script>
+    function mostrar(seccionId) {
+      const secciones = document.querySelectorAll('.section');
+      secciones.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(seccionId).classList.add('active');
+    }
+
+    function toggleInfo(id) {
+      const div = document.getElementById(id);
+      div.style.display = div.style.display === 'none' || div.style.display === '' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
